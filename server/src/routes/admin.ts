@@ -24,6 +24,8 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
 
       // Create seed data
       const now = new Date().toISOString();
+      // Use fixed base date for consistent testing: last commit timestamp (Oct 30, 2025 4:24:11 PM PST)
+      const baseDate = new Date('2025-10-30T23:24:11.000Z').getTime();
 
       // Create 3 projects with fixed IDs for testing
       const projects = [
@@ -78,7 +80,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Create wireframes and high-fidelity mockups for the new homepage',
           status: 'done',
           priority: 'high',
-          dueDate: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate - 5 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 0
         },
         {
@@ -88,7 +90,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Build a mobile-first navigation component with hamburger menu',
           status: 'in_progress',
           priority: 'high',
-          dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 3 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 1
         },
         {
@@ -98,7 +100,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Integrate Google Analytics and set up event tracking',
           status: 'open',
           priority: 'medium',
-          dueDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 10 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 2
         },
         // Mobile App Development tasks
@@ -109,7 +111,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Initialize project with TypeScript and configure build tools',
           status: 'done',
           priority: 'urgent',
-          dueDate: new Date(Date.now() - 15 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate - 15 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 0
         },
         {
@@ -119,7 +121,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Create login, signup, and password reset screens',
           status: 'review',
           priority: 'high',
-          dueDate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 1 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 1
         },
         {
@@ -129,7 +131,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Set up Firebase Cloud Messaging for push notifications',
           status: 'blocked',
           priority: 'medium',
-          dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 7 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 2
         },
         // Marketing Campaign Q4 tasks
@@ -140,7 +142,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Conduct market research and create buyer personas',
           status: 'done',
           priority: 'high',
-          dueDate: new Date(Date.now() - 20 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate - 20 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 0
         },
         {
@@ -150,7 +152,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Plan content for Instagram, Twitter, and LinkedIn for Q4',
           status: 'in_progress',
           priority: 'medium',
-          dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 5 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 1
         },
         {
@@ -160,7 +162,7 @@ router.post('/reset', authenticateToken, (req: AuthRequest, res: Response) => {
           description: 'Create responsive email templates for newsletter campaigns',
           status: 'open',
           priority: 'low',
-          dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(),
+          dueDate: new Date(baseDate + 14 * 24 * 60 * 60 * 1000).toISOString(),
           displayOrder: 2
         }
       ];

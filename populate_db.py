@@ -83,6 +83,9 @@ def create_projects(conn, user_id):
 
 def create_tasks(conn, project_ids, user_id):
     """Create 3 tasks for each project"""
+    # Use fixed base date for consistent testing: last commit timestamp (Oct 30, 2025 4:24:11 PM PST = 11:24:11 PM UTC)
+    base_date = datetime(2025, 10, 30, 23, 24, 11)
+
     tasks_data = {
         "Website Redesign": [
             {
@@ -90,21 +93,21 @@ def create_tasks(conn, project_ids, user_id):
                 "description": "Create wireframes and high-fidelity mockups for the new homepage",
                 "status": "done",
                 "priority": "high",
-                "due_date": (datetime.now() - timedelta(days=5)).isoformat()
+                "due_date": (base_date - timedelta(days=5)).isoformat()
             },
             {
                 "title": "Implement responsive navigation",
                 "description": "Build a mobile-first navigation component with hamburger menu",
                 "status": "in_progress",
                 "priority": "high",
-                "due_date": (datetime.now() + timedelta(days=3)).isoformat()
+                "due_date": (base_date + timedelta(days=3)).isoformat()
             },
             {
                 "title": "Set up analytics tracking",
                 "description": "Integrate Google Analytics and set up event tracking",
                 "status": "open",
                 "priority": "medium",
-                "due_date": (datetime.now() + timedelta(days=10)).isoformat()
+                "due_date": (base_date + timedelta(days=10)).isoformat()
             }
         ],
         "Mobile App Development": [
@@ -113,21 +116,21 @@ def create_tasks(conn, project_ids, user_id):
                 "description": "Initialize project with TypeScript and configure build tools",
                 "status": "done",
                 "priority": "urgent",
-                "due_date": (datetime.now() - timedelta(days=15)).isoformat()
+                "due_date": (base_date - timedelta(days=15)).isoformat()
             },
             {
                 "title": "Design authentication flow",
                 "description": "Create login, signup, and password reset screens",
                 "status": "review",
                 "priority": "high",
-                "due_date": (datetime.now() + timedelta(days=1)).isoformat()
+                "due_date": (base_date + timedelta(days=1)).isoformat()
             },
             {
                 "title": "Implement push notifications",
                 "description": "Set up Firebase Cloud Messaging for push notifications",
                 "status": "blocked",
                 "priority": "medium",
-                "due_date": (datetime.now() + timedelta(days=7)).isoformat()
+                "due_date": (base_date + timedelta(days=7)).isoformat()
             }
         ],
         "Marketing Campaign Q4": [
@@ -136,21 +139,21 @@ def create_tasks(conn, project_ids, user_id):
                 "description": "Conduct market research and create buyer personas",
                 "status": "done",
                 "priority": "high",
-                "due_date": (datetime.now() - timedelta(days=20)).isoformat()
+                "due_date": (base_date - timedelta(days=20)).isoformat()
             },
             {
                 "title": "Create social media content calendar",
                 "description": "Plan content for Instagram, Twitter, and LinkedIn for Q4",
                 "status": "in_progress",
                 "priority": "medium",
-                "due_date": (datetime.now() + timedelta(days=5)).isoformat()
+                "due_date": (base_date + timedelta(days=5)).isoformat()
             },
             {
                 "title": "Design email templates",
                 "description": "Create responsive email templates for newsletter campaigns",
                 "status": "open",
                 "priority": "low",
-                "due_date": (datetime.now() + timedelta(days=14)).isoformat()
+                "due_date": (base_date + timedelta(days=14)).isoformat()
             }
         ]
     }
